@@ -11,16 +11,15 @@ function getRandomHexColor() {
 
 function startChangeBackgroundColor() {
   blockOnBtn();
-  let intervalId = setInterval(() => {
+  intervalId = setInterval(() => {
     console.log("intervalId=setInterval ~ intervalId", intervalId);
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
 }
 
 function stopChangeBackgroundColor() {
-    clearInterval(intervalId);
-
   blockOffBtn();
+  clearInterval(intervalId);
 }
 
 function blockOffBtn() {
