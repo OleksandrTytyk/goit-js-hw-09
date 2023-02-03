@@ -38,5 +38,4 @@ function styleBtn() {
   onBtn.style.fontSize = '24px';
   onBtn.style.textAlign = 'center';
     onBtn.style.width = '120px';
-    onBtn.style.mar
 }
