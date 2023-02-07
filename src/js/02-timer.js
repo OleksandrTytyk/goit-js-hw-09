@@ -28,16 +28,20 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
       Notiflix.Notify.failure('Return to the past? Bad idea!');
-
     } else {
-                      Notiflix.Notify.success('Push the start button!');
+      Notiflix.Notify.success('Push the start button!');
 
       refs.startBtnEl.disabled = false;
       refs.startBtnEl.addEventListener('click', () => {
         timerId = setInterval(() => {
           const selectedTimeEl = selectedDates[0].getTime() - Date.now();
-          convertMs(selectedTimeEl);
+          if (selectedTimeEl <= 0) {
+            clearInterval(timerId);
+            Notiflix.Notify.warning('Сountdown is over');
 
+            return;
+          }
+          convertMs(selectedTimeEl);
         }, 1000);
       });
     }
